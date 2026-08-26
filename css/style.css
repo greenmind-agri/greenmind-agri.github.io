@@ -599,15 +599,18 @@ p:last-child { margin-bottom: 0; }
   border-top: 1px solid var(--line-200);
 }
 .spec-list li:last-child { border-bottom: 1px solid var(--line-200); }
+/* 標籤是中文（底盤／運算／感測／控制），但 mono 字體沒有中文字符，
+   會掉到系統中文字體渲染 —— 拉丁大寫在 12.8px 像標籤，中文在同樣尺寸只是糊。
+   因此拉到與 value 相當，層級改由字重與顏色維持。 */
 .spec-list__label {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 0.05em;
   color: var(--forest-800);
-  padding-top: 3px;
+  padding-top: 2px;
 }
-.spec-list__value { color: var(--ink-muted); font-size: 0.96rem; }
+.spec-list__value { color: var(--ink-muted); font-size: 1rem; }
 
 /* 儀表板 mockup */
 .panel-mock { font-family: var(--font-mono); color: var(--leaf-300); }
@@ -836,6 +839,11 @@ p:last-child { margin-bottom: 0; }
 .prose-grid__aside { position: sticky; top: calc(var(--header-h) + 32px); }
 .prose-grid__body { max-width: 66ch; }
 
+/* 果農調查的填寫須知與個資告知，是農民在手機上要當場讀完就決定填不填的段落，
+   比一般內文大一階（17.6px），行長也收窄一點。 */
+.prose-grid__body--lg p { font-size: 1.1rem; }
+.prose-grid__body--lg { max-width: 58ch; }
+
 /* --------------------------------------------------------------------------
    18. Placeholder 標記 — 需求書 §3
    -------------------------------------------------------------------------- */
@@ -853,7 +861,8 @@ p:last-child { margin-bottom: 0; }
   display: inline-block;
   margin-bottom: var(--space-2);
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  /* 同 .spec-list__label：內容是中文（待補內容／目前階段），0.7rem 讀不了 */
+  font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;

@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>功能介紹 — Greenmind</title>
-<meta name="description" content="Greenmind 自走車的硬體配置、控制軟體功能與整體技術架構：定位、避障、路徑規劃、即時監控與資料回傳。">
+<meta name="description" content="Greenmind 如何把芭樂果園的巡檢資料取得、整理，變成農民看得懂的果園資料卡與觀察報告：資料取得裝備、GreenMind Console、Digital Orchard Profile。">
 <meta name="theme-color" content="#14231A">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:site_name" content="Greenmind">
 <meta property="og:title" content="功能介紹 — Greenmind">
-<meta property="og:description" content="從感測到決策到控制，Greenmind 自走車怎麼在田裡走完一輪。">
+<meta property="og:description" content="從現場取得資料，到整理成一份看得懂的果園報告，中間發生了什麼事。">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -61,10 +61,10 @@
   <section class="page-hero on-dark">
     <div class="container page-hero__inner">
       <p class="eyebrow">Features</p>
-      <h1>拆開來看，它是怎麼走完一輪的</h1>
+      <h1>拆開來看，資料是怎麼變成報告的</h1>
       <p class="lead">
-        這一頁把 Greenmind 自走車分成硬體、軟體與整體架構三層來說明。
-        以下規格為目前原型的設計配置，仍在開發與調整中。
+        這一頁把 Greenmind 分成資料取得裝備、GreenMind Console 與果園資料如何被保存三層來說明。
+        以下為目前原型的設計配置與已完成項目，仍在開發與田間測試中。
       </p>
     </div>
   </section>
@@ -74,87 +74,43 @@
     <div class="container">
       <div class="feature-row reveal">
 
-        <div class="feature-row__media">
-          <svg class="route" viewBox="0 0 400 300" role="img"
-               aria-label="自走車硬體示意圖：車頂為太陽能板，上方立有 GPS 定位天線，車體前方配置視覺與超音波感測器，底部為四輪獨立驅動的越野底盤。">
-            <!-- 地面 -->
-            <line x1="30" y1="248" x2="370" y2="248" stroke="#2A4B3A" stroke-width="2" stroke-dasharray="6 8" stroke-linecap="round"/>
-
-            <!-- 後輪（示意四輪獨立驅動的另一側） -->
-            <circle cx="152" cy="212" r="24" fill="none" stroke="#2A4B3A" stroke-width="2.5"/>
-            <circle cx="282" cy="212" r="24" fill="none" stroke="#2A4B3A" stroke-width="2.5"/>
-
-            <!-- 懸吊 -->
-            <path d="M140 186 L128 208 M260 186 L248 208" stroke="#5B8C51" stroke-width="2" stroke-linecap="round"/>
-
-            <!-- 車體 -->
-            <rect x="104" y="140" width="192" height="52" rx="12" fill="#182B20" stroke="#7FAE68" stroke-width="2.5"/>
-
-            <!-- 太陽能板 -->
-            <rect x="96" y="112" width="208" height="22" rx="5" fill="#1F3A2E" stroke="#7FAE68" stroke-width="2.5"/>
-            <g stroke="#5B8C51" stroke-width="1.4">
-              <line x1="140" y1="112" x2="140" y2="134"/>
-              <line x1="184" y1="112" x2="184" y2="134"/>
-              <line x1="228" y1="112" x2="228" y2="134"/>
-              <line x1="272" y1="112" x2="272" y2="134"/>
-            </g>
-
-            <!-- GPS / RTK 天線 -->
-            <line x1="200" y1="112" x2="200" y2="74" stroke="#7FAE68" stroke-width="2.5" stroke-linecap="round"/>
-            <circle cx="200" cy="66" r="10" fill="none" stroke="#DE9F3D" stroke-width="2.5"/>
-            <path d="M186 52 A20 20 0 0 1 214 52" fill="none" stroke="#DE9F3D" stroke-width="1.8" stroke-linecap="round" opacity="0.7"/>
-            <path d="M178 42 A31 31 0 0 1 222 42" fill="none" stroke="#DE9F3D" stroke-width="1.8" stroke-linecap="round" opacity="0.4"/>
-
-            <!-- 前方感測器 -->
-            <rect x="296" y="152" width="20" height="18" rx="4" fill="#14231A" stroke="#DE9F3D" stroke-width="2.5"/>
-            <g stroke="#DE9F3D" stroke-width="1.8" fill="none" stroke-linecap="round">
-              <path d="M326 154 A14 14 0 0 1 326 168" opacity="0.75"/>
-              <path d="M336 148 A22 22 0 0 1 336 174" opacity="0.45"/>
-              <path d="M346 142 A30 30 0 0 1 346 180" opacity="0.22"/>
-            </g>
-
-            <!-- 前輪 -->
-            <circle cx="140" cy="204" r="30" fill="#14231A" stroke="#7FAE68" stroke-width="3"/>
-            <circle cx="140" cy="204" r="10" fill="none" stroke="#5B8C51" stroke-width="2"/>
-            <circle cx="260" cy="204" r="30" fill="#14231A" stroke="#7FAE68" stroke-width="3"/>
-            <circle cx="260" cy="204" r="10" fill="none" stroke="#5B8C51" stroke-width="2"/>
-
-            <!-- IMU 標示點 -->
-            <circle cx="200" cy="166" r="7" fill="none" stroke="#A6C99A" stroke-width="2"/>
-            <circle cx="200" cy="166" r="2.5" fill="#A6C99A"/>
-          </svg>
+        <div class="feature-row__media feature-row__media--transparent">
+          <img src="img/rover-cutout.png" alt="Greenmind 履帶式自走車實車照片，車上配置邊緣運算主機、機械手臂與相機模組。"
+               width="544" height="388" class="feature-row__image">
         </div>
 
         <div>
-          <p class="eyebrow">Hardware</p>
-          <h2>自走車硬體</h2>
+          <p class="eyebrow">Equipment</p>
+          <h2>資料取得裝備</h2>
           <p>
-            要在真實田區裡走完一輪，車子得先撐得住地形。底盤、感測與動力這三件事，
-            決定了它能走多遠、走多穩、以及走的時候知不知道自己在哪。
+            團隊已組出履帶式自走車，車上整合邊緣運算、控制與相機模組，
+            用來在真實田間通道與泥地地形中近距離取得影像與感測資料。
+            設備由團隊自行持有、到場作業，農民不需要採購或承擔維護與失竊風險。
           </p>
 
           <ul class="spec-list">
             <li>
-              <span class="spec-list__label">定位</span>
-              <span class="spec-list__value">GPS / RTK 定位模組，用於判斷車體在田區中的絕對位置。</span>
-            </li>
-            <li>
-              <span class="spec-list__label">姿態</span>
-              <span class="spec-list__value">IMU 慣性測量單元，補足傾斜、轉向與顛簸時的姿態資訊。</span>
-            </li>
-            <li>
-              <span class="spec-list__label">避障</span>
-              <span class="spec-list__value">超音波搭配視覺避障，處理田埂、支架與突發障礙物。</span>
-            </li>
-            <li>
               <span class="spec-list__label">底盤</span>
-              <span class="spec-list__value">四輪獨立驅動、可調懸吊，因應不平整的土面與壟溝。</span>
+              <span class="spec-list__value">履帶式移動載台，因應田間通道與不平整地形。</span>
             </li>
             <li>
-              <span class="spec-list__label">動力</span>
-              <span class="spec-list__value">鋰電池為主，搭配太陽能輔助充電以延長出勤時間。</span>
+              <span class="spec-list__label">運算</span>
+              <span class="spec-list__value">邊緣運算節點，負責較重的影像與模型任務就地處理。</span>
+            </li>
+            <li>
+              <span class="spec-list__label">感測</span>
+              <span class="spec-list__value">相機與感測模組，取得果實、枝葉與田間通道的近距離影像。</span>
+            </li>
+            <li>
+              <span class="spec-list__label">控制</span>
+              <span class="spec-list__value">現場移動維持人工可介入，田間測試以安全停止與人工接管為優先。</span>
             </li>
           </ul>
+
+          <p class="placeholder" style="margin-top:var(--space-5)">
+            <span class="placeholder__label">目前階段</span>
+            尚未驗證：長時間田間自主巡檢、大範圍無人操作。目前以小範圍場測確認安全性與影像可用率。
+          </p>
         </div>
 
       </div>
@@ -172,11 +128,11 @@
               <span class="panel-mock__dot panel-mock__dot--live" aria-hidden="true"></span>
               <span class="panel-mock__dot" aria-hidden="true"></span>
               <span class="panel-mock__dot" aria-hidden="true"></span>
-              <span class="panel-mock__title">Greenmind Control</span>
+              <span class="panel-mock__title">GreenMind Console</span>
             </div>
 
             <svg viewBox="0 0 360 170" role="img"
-                 aria-label="控制介面示意：地圖上顯示已規劃的壟間往返路徑，以及自走車目前所在位置。">
+                 aria-label="Console 介面示意：地圖上顯示本次巡檢已覆蓋的田間路徑，以及自走車目前所在位置。">
               <rect x="0.5" y="0.5" width="359" height="169" rx="8" fill="#14231A" stroke="#2A4B3A"/>
               <g stroke="#1F3A2E" stroke-width="1">
                 <line x1="0" y1="42" x2="360" y2="42"/>
@@ -196,42 +152,42 @@
 
             <dl class="panel-mock__readouts">
               <div class="panel-mock__cell">
-                <dt>Mode</dt>
-                <dd>自動巡行</dd>
+                <dt>Task</dt>
+                <dd>巡檢中</dd>
               </div>
               <div class="panel-mock__cell">
-                <dt>Route</dt>
-                <dd>Row 3 / 4</dd>
+                <dt>Sync</dt>
+                <dd>2 / 3 已同步</dd>
               </div>
             </dl>
-            <p class="video-frame__note" style="margin-top:16px">介面為設計示意，實際畫面待開發完成後替換。</p>
+            <p class="video-frame__note" style="margin-top:16px">介面為設計示意，實際畫面待正式截圖取得後替換。</p>
           </div>
         </div>
 
         <div>
-          <p class="eyebrow">Software</p>
-          <h2>控制軟體</h2>
+          <p class="eyebrow">Platform</p>
+          <h2>GreenMind Console</h2>
           <p>
-            軟體要解決的問題很單純：讓操作的人隨時知道車在哪、接下來要往哪走，
-            以及這一輪巡完之後留下了什麼。
+            Console 要解決的問題很單純：讓服務人員隨時知道這座果園巡到哪裡、
+            取得了什麼影像，以及這一趟服務結束後留下了什麼可以回看的紀錄。
           </p>
 
           <ul class="spec-list">
             <li>
-              <span class="spec-list__label">路徑規劃</span>
-              <span class="spec-list__value">壟間往返路徑規劃（Boustrophedon）：走到一行盡頭即轉向下一行，覆蓋整個田區。</span>
+              <span class="spec-list__label">建圖與任務</span>
+              <span class="spec-list__value">查看已巡檢範圍、任務進度與自走車目前所在位置。</span>
             </li>
             <li>
-              <span class="spec-list__label">操控模式</span>
-              <span class="spec-list__value">手動與自動雙模式切換，遇到需要人為介入的狀況可立即接手。</span>
+              <span class="spec-list__label">相機與資料狀態</span>
+              <span class="spec-list__value">影像取得狀況與資料屬性一覽，確認本次任務的可用影像量。</span>
             </li>
             <li>
-              <span class="spec-list__label">即時監控</span>
-              <span class="spec-list__value">感測數據儀表板，把位置、姿態與環境數據集中在同一個畫面。</span>
+              <span class="spec-list__label">上傳與同步</span>
+              <span class="spec-list__value">即時上傳、離線補傳與同步狀態追蹤，支撐後續接入雲端服務的需求盤點。</span>
             </li>
             <li>
-              <span class="spec-list__label">資料回傳</span>
-              <span class="spec-list__value">雲端記錄與軌跡回放，讓每一次巡田都能事後重看與比對。</span>
+              <span class="spec-list__label">紀錄回看</span>
+              <span class="spec-list__value">巡檢任務可回看比對，累積成同一座果園的長期追蹤紀錄。</span>
             </li>
           </ul>
         </div>
@@ -244,33 +200,34 @@
   <section class="section section--dark">
     <div class="container">
       <div class="section-intro reveal on-dark">
-        <p class="eyebrow">Architecture</p>
-        <h2>從感測到操控，資料怎麼流</h2>
+        <p class="eyebrow">Digital Orchard Profile</p>
+        <h2>果園資料如何被保存與回看</h2>
         <p class="lead">
-          自走車上的每一次判斷，都是這四層依序跑完的結果。
+          每座果園都有一份可追溯的資料夾：把巡檢時間、任務、影像與感測紀錄串在一起，
+          讓下一次服務不是重新開始。
         </p>
       </div>
 
       <ol class="flow reveal">
         <li class="flow__step">
           <span class="flow__num">Step 01</span>
-          <h3>感測層</h3>
-          <p>GPS / RTK、IMU、超音波與視覺鏡頭同時取得位置、姿態與周遭環境資料。</p>
+          <h3>場域盤點</h3>
+          <p>確認田區範圍、通道與本次需要留意的區域，設定巡檢任務。</p>
         </li>
         <li class="flow__step">
           <span class="flow__num">Step 02</span>
-          <h3>決策層</h3>
-          <p>融合感測結果，比對既定的壟間路徑，判斷該直行、轉向，還是先避開障礙。</p>
+          <h3>資料取得</h3>
+          <p>自走車到場巡檢，每次影像取得都保留時間戳、任務編號與影像屬性。</p>
         </li>
         <li class="flow__step">
           <span class="flow__num">Step 03</span>
-          <h3>控制層</h3>
-          <p>把決策轉成四輪的實際動作：轉速、轉向與速度調整，讓車貼著路徑走。</p>
+          <h3>平台整理</h3>
+          <p>GreenMind Console 進行完整性檢查與同步狀態追蹤，整理成可回看的任務紀錄。</p>
         </li>
         <li class="flow__step">
           <span class="flow__num">Step 04</span>
-          <h3>雲端 / 操控端</h3>
-          <p>影像、軌跡與感測數據回傳，操作者即時查看，也保留下來供事後回放比對。</p>
+          <h3>觀察報告</h3>
+          <p>把整理過的結果交付成果園資料卡與巡檢報告，回到農民看得懂的語言。</p>
         </li>
       </ol>
     </div>
@@ -281,8 +238,8 @@
     <div class="container">
       <section class="contact-band reveal" aria-labelledby="cta-features">
         <div class="contact-band__text">
-          <h2 id="cta-features">規格看完了，來看它怎麼動</h2>
-          <p>Demo 頁有巡田示範影片、控制介面預覽，以及一趟完整巡田的操作流程。</p>
+          <h2 id="cta-features">規格看完了，來看服務怎麼跑一趟</h2>
+          <p>Demo 頁有巡檢示範影片、GreenMind Console 介面預覽，以及一趟完整巡檢服務的流程。</p>
         </div>
         <div class="btn-row">
           <a class="btn btn--primary" href="demo.html">前往 Demo</a>
@@ -311,8 +268,8 @@
           <span>Greenmind</span>
         </a>
         <p class="site-footer__about">
-          開發中的智慧農業自走車團隊。我們相信巡田這件事，
-          值得一台走得比人更規律、記得比人更清楚的機器。
+          芭樂果園巡檢與資料服務團隊。我們相信農民要的不是一台新機器，
+          而是一份看得懂、留得住的果園紀錄。
         </p>
       </div>
 
@@ -330,13 +287,12 @@
         <h3>聯絡我們</h3>
         <ul class="footer-list">
           <li><a href="mailto:greenmindagent@gmail.com">greenmindagent@gmail.com</a></li>
-          <li><span class="placeholder placeholder--inline">待補：GitHub 連結</span></li>
           <li><span class="placeholder placeholder--inline">待補：社群連結</span></li>
         </ul>
       </div>
 
     </div>
-    <p class="site-footer__legal">© 2026 Greenmind. 本網站所述之自走車與軟體皆為開發中原型。</p>
+    <p class="site-footer__legal">© 2026 Greenmind. 本網站所述之服務與平台功能皆為開發中原型，尚未進入商業化營運。</p>
   </div>
 </footer>
 

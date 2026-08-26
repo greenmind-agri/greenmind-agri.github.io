@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Demo — Greenmind</title>
-<meta name="description" content="Greenmind 自走車的巡田示範、控制軟體介面預覽，以及一趟完整巡田從部署到匯出報告的操作流程。">
+<meta name="description" content="Greenmind 的巡檢示範、GreenMind Console 介面預覽，以及一趟完整巡檢服務從到場取得資料到交付觀察報告的流程。">
 <meta name="theme-color" content="#14231A">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:site_name" content="Greenmind">
 <meta property="og:title" content="Demo — Greenmind">
-<meta property="og:description" content="看 Greenmind 自走車實際巡一趟田：部署、規劃路徑、自動巡行、示警到匯出報告。">
+<meta property="og:description" content="看 Greenmind 實際巡一趟果園：到場取得資料、平台整理、交付觀察報告、回訪確認。">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -61,9 +61,9 @@
   <section class="page-hero on-dark">
     <div class="container page-hero__inner">
       <p class="eyebrow">Demo</p>
-      <h1>它在田裡實際跑起來，是這樣</h1>
+      <h1>一次巡檢服務，是這樣進行的</h1>
       <p class="lead">
-        以下是 Greenmind 自走車的巡田示範與控制介面預覽。
+        以下是 Greenmind 的巡檢示範與 GreenMind Console 介面預覽。
         部分素材仍在拍攝與開發中，頁面上會清楚標示哪些是尚未替換的示意內容。
       </p>
     </div>
@@ -74,8 +74,8 @@
     <div class="container">
       <div class="section-intro reveal">
         <p class="eyebrow">Field Demo</p>
-        <h2>巡田示範影片</h2>
-        <p class="lead">一趟從進場、規劃路徑到自動巡行完成的完整紀錄。</p>
+        <h2>巡檢示範影片</h2>
+        <p class="lead">一趟從進場、取得影像到整理成資料紀錄的完整過程。</p>
       </div>
 
       <div class="video-frame reveal">
@@ -103,10 +103,10 @@
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M7 4.5v15l13-7.5z"/>
             </svg>
-            <span class="visually-hidden">播放巡田示範影片</span>
+            <span class="visually-hidden">播放巡檢示範影片</span>
           </button>
           <p class="video-frame__note" id="video-status" role="status">示範影片準備中</p>
-          <span class="placeholder placeholder--inline">待補：巡田示範影片</span>
+          <span class="placeholder placeholder--inline">待補：巡檢示範影片</span>
         </div>
       </div>
     </div>
@@ -117,9 +117,9 @@
     <div class="container">
       <div class="section-intro reveal">
         <p class="eyebrow">Interface</p>
-        <h2>控制軟體介面預覽</h2>
+        <h2>GreenMind Console 介面預覽</h2>
         <p class="lead">
-          操作端會看到的三個主要畫面。以下為設計示意圖，待軟體開發完成後將替換為實際截圖。
+          服務人員會看到的三個主要畫面。以下為設計示意圖，待平台開發完成後將替換為實際截圖。
         </p>
       </div>
 
@@ -127,7 +127,7 @@
 
         <figure class="gallery__item" style="margin:0">
           <div class="gallery__shot">
-            <svg viewBox="0 0 240 180" role="img" aria-label="即時地圖示意：田區網格上顯示規劃路徑與自走車目前位置。">
+            <svg viewBox="0 0 240 180" role="img" aria-label="任務地圖示意：田區網格上顯示本次已巡檢範圍與自走車目前位置。">
               <rect x="0.5" y="0.5" width="239" height="179" rx="6" fill="#14231A" stroke="#2A4B3A"/>
               <g stroke="#1F3A2E" stroke-width="1">
                 <line x1="0" y1="45" x2="240" y2="45"/>
@@ -146,14 +146,14 @@
             </svg>
           </div>
           <figcaption class="gallery__caption">
-            <h3>即時地圖</h3>
-            <p>田區網格、已規劃路徑與自走車當前位置，一眼看出走到哪一行。</p>
+            <h3>任務地圖</h3>
+            <p>田區網格、本次已覆蓋的巡檢範圍與自走車當前位置，一眼看出走到哪一區。</p>
           </figcaption>
         </figure>
 
         <figure class="gallery__item" style="margin:0">
           <div class="gallery__shot">
-            <svg viewBox="0 0 240 180" role="img" aria-label="感測儀表板示意：多項感測數據以長條與折線圖呈現。">
+            <svg viewBox="0 0 240 180" role="img" aria-label="資料狀態儀表板示意：影像可用率與同步狀態以長條與折線圖呈現。">
               <rect x="0.5" y="0.5" width="239" height="179" rx="6" fill="#14231A" stroke="#2A4B3A"/>
               <g fill="#1F3A2E">
                 <rect x="20" y="24" width="90" height="52" rx="5"/>
@@ -174,14 +174,14 @@
             </svg>
           </div>
           <figcaption class="gallery__caption">
-            <h3>感測儀表板</h3>
-            <p>位置、姿態與環境數據集中在同一頁，異常數值即時反白。</p>
+            <h3>資料狀態儀表板</h3>
+            <p>影像取得量、完整性檢查與同步狀態集中在同一頁，方便服務人員掌握本次任務品質。</p>
           </figcaption>
         </figure>
 
         <figure class="gallery__item" style="margin:0">
           <div class="gallery__shot">
-            <svg viewBox="0 0 240 180" role="img" aria-label="軌跡回放示意：已走過的路徑以時間軸控制回放進度。">
+            <svg viewBox="0 0 240 180" role="img" aria-label="巡檢紀錄回放示意：已完成的任務以時間軸控制回放進度。">
               <rect x="0.5" y="0.5" width="239" height="179" rx="6" fill="#14231A" stroke="#2A4B3A"/>
               <path d="M34 34 H206 A15 15 0 0 1 206 64 H34 A15 15 0 0 0 34 94 H206"
                     fill="none" stroke="#2A4B3A" stroke-width="5" stroke-linecap="round"/>
@@ -199,8 +199,8 @@
             </svg>
           </div>
           <figcaption class="gallery__caption">
-            <h3>軌跡回放</h3>
-            <p>把某一趟巡田重新播一次，對照當時的影像與感測數值。</p>
+            <h3>巡檢紀錄回放</h3>
+            <p>把某一次巡檢任務重新看一次，對照當時的影像與資料狀態。</p>
           </figcaption>
         </figure>
 
@@ -208,7 +208,7 @@
 
       <p class="placeholder reveal" style="margin-top:32px">
         <span class="placeholder__label">待補內容</span>
-        控制軟體介面實際截圖 3 張（即時地圖 / 感測儀表板 / 軌跡回放），取得後請取代上方三個 SVG 示意圖。
+        GreenMind Console 實際截圖 3 張（任務地圖 / 資料狀態儀表板 / 巡檢紀錄回放），取得後請取代上方三個 SVG 示意圖。
       </p>
     </div>
   </section>
@@ -218,39 +218,39 @@
     <div class="container">
       <div class="section-intro reveal">
         <p class="eyebrow">Walkthrough</p>
-        <h2>一趟巡田，從頭到尾</h2>
-        <p class="lead">實際使用時，操作者會依序經過這五個步驟。</p>
+        <h2>一次巡檢服務，從頭到尾</h2>
+        <p class="lead">實際執行時，團隊會依序經過這五個步驟。</p>
       </div>
 
       <ol class="steps reveal">
         <li class="steps__item">
           <div>
-            <h3>部署自走車於田區</h3>
-            <p>把車推到田區入口、確認電量與感測器狀態，設定本次巡田的起始點。</p>
+            <h3>到場盤點</h3>
+            <p>確認田區範圍、通道與本次需要留意的區域，設定本次巡檢任務。</p>
           </div>
         </li>
         <li class="steps__item">
           <div>
-            <h3>設定巡田路徑</h3>
-            <p>在地圖上框出要巡的範圍，系統依壟間間距自動產生往返路徑，必要時可手動微調。</p>
+            <h3>自走車進場取得資料</h3>
+            <p>履帶式自走車沿田間通道移動，近距離拍攝套袋果實、枝葉與通道影像。</p>
           </div>
         </li>
         <li class="steps__item">
           <div>
-            <h3>自動巡行並回傳影像</h3>
-            <p>切換為自動模式後，車沿路徑逐行前進，途中持續回傳影像與感測數據。</p>
+            <h3>Console 整理任務與影像</h3>
+            <p>時間戳、任務編號、影像屬性與完整性檢查即時記錄，確認資料是否足夠。</p>
           </div>
         </li>
         <li class="steps__item">
           <div>
-            <h3>即時查看作物異常示警</h3>
-            <p>偵測到疑似異常時，儀表板會標出位置，操作者可立即切回手動模式就近確認。</p>
+            <h3>整理觀察重點</h3>
+            <p>服務人員檢視影像，標記需要留意的地方，目前階段以人工判讀為主，尚未導入自動辨識。</p>
           </div>
         </li>
         <li class="steps__item">
           <div>
-            <h3>匯出巡田報告</h3>
-            <p>巡完一輪後，把軌跡、影像與示警紀錄整理成報告，作為下一次比對的基準。</p>
+            <h3>交付果園資料卡與觀察報告</h3>
+            <p>整理成農民看得懂的巡檢摘要，並確認下一次服務要優先追蹤哪一區。</p>
           </div>
         </li>
       </ol>
@@ -293,8 +293,8 @@
           <span>Greenmind</span>
         </a>
         <p class="site-footer__about">
-          開發中的智慧農業自走車團隊。我們相信巡田這件事，
-          值得一台走得比人更規律、記得比人更清楚的機器。
+          芭樂果園巡檢與資料服務團隊。我們相信農民要的不是一台新機器，
+          而是一份看得懂、留得住的果園紀錄。
         </p>
       </div>
 
@@ -312,13 +312,12 @@
         <h3>聯絡我們</h3>
         <ul class="footer-list">
           <li><a href="mailto:greenmindagent@gmail.com">greenmindagent@gmail.com</a></li>
-          <li><span class="placeholder placeholder--inline">待補：GitHub 連結</span></li>
           <li><span class="placeholder placeholder--inline">待補：社群連結</span></li>
         </ul>
       </div>
 
     </div>
-    <p class="site-footer__legal">© 2026 Greenmind. 本網站所述之自走車與軟體皆為開發中原型。</p>
+    <p class="site-footer__legal">© 2026 Greenmind. 本網站所述之服務與平台功能皆為開發中原型，尚未進入商業化營運。</p>
   </div>
 </footer>
 

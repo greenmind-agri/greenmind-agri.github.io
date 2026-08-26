@@ -27,7 +27,7 @@ js/main.js      手機選單、滾動進場、動態偏好處理
 | `about.html` | 「我們的願景」實際文字 |
 | `demo.html` | 巡田示範影片 |
 | `demo.html` | 控制軟體介面實際截圖 3 張（取代現有 SVG 示意圖） |
-| 各頁 footer、`about.html` CTA | GitHub 與社群連結網址 |
+| 各頁 footer、`about.html` CTA | 社群連結網址 |
 
 ## 換上 Demo 影片
 

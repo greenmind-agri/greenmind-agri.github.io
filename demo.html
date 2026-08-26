@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demo — Greenmind</title>
+<meta name="description" content="Greenmind 自走車的巡田示範、控制軟體介面預覽，以及一趟完整巡田從部署到匯出報告的操作流程。">
+<meta name="theme-color" content="#14231A">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="Greenmind">
+<meta property="og:title" content="Demo — Greenmind">
+<meta property="og:description" content="看 Greenmind 自走車實際巡一趟田：部署、規劃路徑、自動巡行、示警到匯出報告。">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳至主要內容</a>
+
+<!-- ====================== Header ====================== -->
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="index.html">
+      <svg class="brand__mark" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+        <g class="brand__rows">
+          <line x1="4" y1="7" x2="24" y2="7"/>
+          <line x1="4" y1="14" x2="24" y2="14"/>
+          <line x1="4" y1="21" x2="24" y2="21"/>
+        </g>
+        <path class="brand__path" d="M5 7 H19 A3.5 3.5 0 0 1 19 14 H9 A3.5 3.5 0 0 0 9 21 H23"/>
+      </svg>
+      <span>Greenmind</span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="開啟選單">
+      <span class="nav-toggle__bars" aria-hidden="true"></span>
+    </button>
+
+    <nav class="nav" id="site-nav" aria-label="主要導覽">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="index.html">首頁</a></li>
+        <li><a class="nav__link" href="features.html">功能介紹</a></li>
+        <li><a class="nav__link" href="demo.html" aria-current="page">Demo</a></li>
+        <li><a class="nav__link" href="about.html">關於我們</a></li>
+      </ul>
+      <a class="btn btn--primary btn--sm" href="about.html">聯絡團隊</a>
+    </nav>
+
+    <a class="btn btn--primary btn--sm header-cta" href="about.html">聯絡團隊</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ====================== Page hero ====================== -->
+  <section class="page-hero on-dark">
+    <div class="container page-hero__inner">
+      <p class="eyebrow">Demo</p>
+      <h1>它在田裡實際跑起來，是這樣</h1>
+      <p class="lead">
+        以下是 Greenmind 自走車的巡田示範與控制介面預覽。
+        部分素材仍在拍攝與開發中，頁面上會清楚標示哪些是尚未替換的示意內容。
+      </p>
+    </div>
+  </section>
+
+  <!-- ====================== 示範影片 ====================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-intro reveal">
+        <p class="eyebrow">Field Demo</p>
+        <h2>巡田示範影片</h2>
+        <p class="lead">一趟從進場、規劃路徑到自動巡行完成的完整紀錄。</p>
+      </div>
+
+      <div class="video-frame reveal">
+        <!-- 田壟線裝飾背景 -->
+        <svg class="video-frame__decor" viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <g stroke="#2A4B3A" stroke-width="2" stroke-linecap="round">
+            <line x1="60" y1="120" x2="740" y2="120"/>
+            <line x1="60" y1="180" x2="740" y2="180"/>
+            <line x1="60" y1="240" x2="740" y2="240"/>
+            <line x1="60" y1="300" x2="740" y2="300"/>
+            <line x1="60" y1="360" x2="740" y2="360"/>
+          </g>
+          <path d="M100 120 H700 A30 30 0 0 1 700 180 H100 A30 30 0 0 0 100 240 H700 A30 30 0 0 1 700 300 H100"
+                fill="none" stroke="#5B8C51" stroke-width="2.5" stroke-linecap="round" opacity="0.55"/>
+        </svg>
+
+        <!--
+          影片來源尚未決定（需求書 §5.2 待確認）。
+          YouTube：把 <iframe src="https://www.youtube-nocookie.com/embed/影片ID" title="..." allowfullscreen></iframe> 放進本區塊。
+          自架檔案：改放 <video src="..." controls poster="..."></video>。
+          兩者的鋪滿樣式 css/style.css §14 都已備妥，屆時移除下方 .video-frame__center 即可。
+        -->
+        <div class="video-frame__center">
+          <button class="video-frame__play" type="button" aria-describedby="video-status">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M7 4.5v15l13-7.5z"/>
+            </svg>
+            <span class="visually-hidden">播放巡田示範影片</span>
+          </button>
+          <p class="video-frame__note" id="video-status" role="status">示範影片準備中</p>
+          <span class="placeholder placeholder--inline">待補：巡田示範影片</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== 控制軟體介面預覽 ====================== -->
+  <section class="section section--paper">
+    <div class="container">
+      <div class="section-intro reveal">
+        <p class="eyebrow">Interface</p>
+        <h2>控制軟體介面預覽</h2>
+        <p class="lead">
+          操作端會看到的三個主要畫面。以下為設計示意圖，待軟體開發完成後將替換為實際截圖。
+        </p>
+      </div>
+
+      <div class="gallery reveal">
+
+        <figure class="gallery__item" style="margin:0">
+          <div class="gallery__shot">
+            <svg viewBox="0 0 240 180" role="img" aria-label="即時地圖示意：田區網格上顯示規劃路徑與自走車目前位置。">
+              <rect x="0.5" y="0.5" width="239" height="179" rx="6" fill="#14231A" stroke="#2A4B3A"/>
+              <g stroke="#1F3A2E" stroke-width="1">
+                <line x1="0" y1="45" x2="240" y2="45"/>
+                <line x1="0" y1="90" x2="240" y2="90"/>
+                <line x1="0" y1="135" x2="240" y2="135"/>
+                <line x1="60" y1="0" x2="60" y2="180"/>
+                <line x1="120" y1="0" x2="120" y2="180"/>
+                <line x1="180" y1="0" x2="180" y2="180"/>
+              </g>
+              <path d="M34 38 H206 A16 16 0 0 1 206 70 H34 A16 16 0 0 0 34 102 H206 A16 16 0 0 1 206 134 H34"
+                    fill="none" stroke="#2A4B3A" stroke-width="5" stroke-linecap="round"/>
+              <path d="M34 38 H206 A16 16 0 0 1 206 70 H120"
+                    fill="none" stroke="#7FAE68" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="120" cy="70" r="10" fill="none" stroke="#DE9F3D" stroke-width="1.4" opacity="0.5"/>
+              <rect x="115" y="65" width="10" height="10" rx="2.5" fill="#DE9F3D"/>
+            </svg>
+          </div>
+          <figcaption class="gallery__caption">
+            <h3>即時地圖</h3>
+            <p>田區網格、已規劃路徑與自走車當前位置，一眼看出走到哪一行。</p>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery__item" style="margin:0">
+          <div class="gallery__shot">
+            <svg viewBox="0 0 240 180" role="img" aria-label="感測儀表板示意：多項感測數據以長條與折線圖呈現。">
+              <rect x="0.5" y="0.5" width="239" height="179" rx="6" fill="#14231A" stroke="#2A4B3A"/>
+              <g fill="#1F3A2E">
+                <rect x="20" y="24" width="90" height="52" rx="5"/>
+                <rect x="130" y="24" width="90" height="52" rx="5"/>
+              </g>
+              <g fill="#7FAE68">
+                <rect x="30" y="52" width="30" height="6" rx="3"/>
+                <rect x="140" y="52" width="52" height="6" rx="3"/>
+              </g>
+              <g fill="#DE9F3D">
+                <rect x="30" y="36" width="18" height="6" rx="3"/>
+                <rect x="140" y="36" width="26" height="6" rx="3"/>
+              </g>
+              <rect x="20" y="90" width="200" height="70" rx="5" fill="#1F3A2E"/>
+              <polyline points="32,142 60,126 88,134 116,108 144,118 172,98 208,110"
+                        fill="none" stroke="#7FAE68" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="172" cy="98" r="4" fill="#DE9F3D"/>
+            </svg>
+          </div>
+          <figcaption class="gallery__caption">
+            <h3>感測儀表板</h3>
+            <p>位置、姿態與環境數據集中在同一頁，異常數值即時反白。</p>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery__item" style="margin:0">
+          <div class="gallery__shot">
+            <svg viewBox="0 0 240 180" role="img" aria-label="軌跡回放示意：已走過的路徑以時間軸控制回放進度。">
+              <rect x="0.5" y="0.5" width="239" height="179" rx="6" fill="#14231A" stroke="#2A4B3A"/>
+              <path d="M34 34 H206 A15 15 0 0 1 206 64 H34 A15 15 0 0 0 34 94 H206"
+                    fill="none" stroke="#2A4B3A" stroke-width="5" stroke-linecap="round"/>
+              <path d="M34 34 H206 A15 15 0 0 1 206 64 H90"
+                    fill="none" stroke="#7FAE68" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="90" cy="64" r="5" fill="#DE9F3D"/>
+              <!-- 時間軸 -->
+              <rect x="30" y="132" width="180" height="6" rx="3" fill="#1F3A2E"/>
+              <rect x="30" y="132" width="104" height="6" rx="3" fill="#7FAE68"/>
+              <circle cx="134" cy="135" r="8" fill="#DE9F3D"/>
+              <g fill="#2A4B3A">
+                <rect x="30" y="152" width="34" height="6" rx="3"/>
+                <rect x="176" y="152" width="34" height="6" rx="3"/>
+              </g>
+            </svg>
+          </div>
+          <figcaption class="gallery__caption">
+            <h3>軌跡回放</h3>
+            <p>把某一趟巡田重新播一次，對照當時的影像與感測數值。</p>
+          </figcaption>
+        </figure>
+
+      </div>
+
+      <p class="placeholder reveal" style="margin-top:32px">
+        <span class="placeholder__label">待補內容</span>
+        控制軟體介面實際截圖 3 張（即時地圖 / 感測儀表板 / 軌跡回放），取得後請取代上方三個 SVG 示意圖。
+      </p>
+    </div>
+  </section>
+
+  <!-- ====================== 使用情境 Walkthrough ====================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-intro reveal">
+        <p class="eyebrow">Walkthrough</p>
+        <h2>一趟巡田，從頭到尾</h2>
+        <p class="lead">實際使用時，操作者會依序經過這五個步驟。</p>
+      </div>
+
+      <ol class="steps reveal">
+        <li class="steps__item">
+          <div>
+            <h3>部署自走車於田區</h3>
+            <p>把車推到田區入口、確認電量與感測器狀態，設定本次巡田的起始點。</p>
+          </div>
+        </li>
+        <li class="steps__item">
+          <div>
+            <h3>設定巡田路徑</h3>
+            <p>在地圖上框出要巡的範圍，系統依壟間間距自動產生往返路徑，必要時可手動微調。</p>
+          </div>
+        </li>
+        <li class="steps__item">
+          <div>
+            <h3>自動巡行並回傳影像</h3>
+            <p>切換為自動模式後，車沿路徑逐行前進，途中持續回傳影像與感測數據。</p>
+          </div>
+        </li>
+        <li class="steps__item">
+          <div>
+            <h3>即時查看作物異常示警</h3>
+            <p>偵測到疑似異常時，儀表板會標出位置，操作者可立即切回手動模式就近確認。</p>
+          </div>
+        </li>
+        <li class="steps__item">
+          <div>
+            <h3>匯出巡田報告</h3>
+            <p>巡完一輪後，把軌跡、影像與示警紀錄整理成報告，作為下一次比對的基準。</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ====================== CTA ====================== -->
+  <div class="contact-band-wrap">
+    <div class="container">
+      <section class="contact-band reveal" aria-labelledby="cta-demo">
+        <div class="contact-band__text">
+          <h2 id="cta-demo">想更靠近看看嗎？</h2>
+          <p>不論是想了解團隊、談合作，或是安排一次實地參訪，都歡迎直接來信。</p>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="about.html">認識團隊</a>
+          <a class="btn btn--ghost" href="mailto:greenmindagent@gmail.com">來信聯絡</a>
+        </div>
+      </section>
+    </div>
+  </div>
+
+</main>
+
+<!-- ====================== Footer ====================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+
+      <div>
+        <a class="brand" href="index.html">
+          <svg class="brand__mark" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <g class="brand__rows">
+              <line x1="4" y1="7" x2="24" y2="7"/>
+              <line x1="4" y1="14" x2="24" y2="14"/>
+              <line x1="4" y1="21" x2="24" y2="21"/>
+            </g>
+            <path class="brand__path" d="M5 7 H19 A3.5 3.5 0 0 1 19 14 H9 A3.5 3.5 0 0 0 9 21 H23"/>
+          </svg>
+          <span>Greenmind</span>
+        </a>
+        <p class="site-footer__about">
+          開發中的智慧農業自走車團隊。我們相信巡田這件事，
+          值得一台走得比人更規律、記得比人更清楚的機器。
+        </p>
+      </div>
+
+      <div>
+        <h3>網站導覽</h3>
+        <ul class="footer-list">
+          <li><a href="index.html">首頁</a></li>
+          <li><a href="features.html">功能介紹</a></li>
+          <li><a href="demo.html">Demo</a></li>
+          <li><a href="about.html">關於我們</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>聯絡我們</h3>
+        <ul class="footer-list">
+          <li><a href="mailto:greenmindagent@gmail.com">greenmindagent@gmail.com</a></li>
+          <li><span class="placeholder placeholder--inline">待補：GitHub 連結</span></li>
+          <li><span class="placeholder placeholder--inline">待補：社群連結</span></li>
+        </ul>
+      </div>
+
+    </div>
+    <p class="site-footer__legal">© 2026 Greenmind. 本網站所述之自走車與軟體皆為開發中原型。</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

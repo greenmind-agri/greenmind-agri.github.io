@@ -1,0 +1,9 @@
+# Claude Code 的技能與設定，與網站本身無關
+.claude/
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store

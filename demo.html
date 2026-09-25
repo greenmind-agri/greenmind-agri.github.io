@@ -76,7 +76,7 @@
       <div class="section-intro reveal">
         <p class="eyebrow">Field Demo</p>
         <h2>巡檢示範影片</h2>
-        <p class="lead">一趟從進場、取得影像到整理成資料紀錄的完整過程。</p>
+        <p class="lead">透過果園實拍，看看自走車如何沿著樹列前進，執行現場巡檢。</p>
       </div>
 
       <div class="video-frame reveal">
@@ -93,22 +93,11 @@
                 fill="none" stroke="#5B8C51" stroke-width="2.5" stroke-linecap="round" opacity="0.55"/>
         </svg>
 
-        <!--
-          影片來源尚未決定（需求書 §5.2 待確認）。
-          YouTube：把 <iframe src="https://www.youtube-nocookie.com/embed/影片ID" title="..." allowfullscreen></iframe> 放進本區塊。
-          自架檔案：改放 <video src="..." controls poster="..."></video>。
-          兩者的鋪滿樣式 css/style.css §14 都已備妥，屆時移除下方 .video-frame__center 即可。
-        -->
-        <div class="video-frame__center">
-          <button class="video-frame__play" type="button" aria-describedby="video-status">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M7 4.5v15l13-7.5z"/>
-            </svg>
-            <span class="visually-hidden">播放巡檢示範影片</span>
-          </button>
-          <p class="video-frame__note" id="video-status" role="status">示範影片準備中</p>
-          <span class="placeholder placeholder--inline">待補：巡檢示範影片</span>
-        </div>
+        <video controls preload="metadata" playsinline poster="img/demo-poster.jpg"
+               aria-label="Greenmind 自走車在芭樂果園執行巡檢的示範影片">
+          <source src="media/greenmind-field-demo.mp4" type="video/mp4">
+          抱歉，您的瀏覽器不支援 HTML 影片播放。
+        </video>
       </div>
     </div>
   </section>
